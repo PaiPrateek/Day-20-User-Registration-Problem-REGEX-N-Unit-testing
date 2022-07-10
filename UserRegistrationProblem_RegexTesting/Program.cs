@@ -23,6 +23,9 @@ namespace UserRegistrationProblem_RegexTesting
 
             //Validation for Mobile Number
             P.Validate_MobileNumber("91 9945007207");
+
+            //Validation for Password
+            P.Validate_Password_Contains_Min_8_Characters("Password");
         }
 
         public bool Validate_FirstName(string firstName)
@@ -55,6 +58,14 @@ namespace UserRegistrationProblem_RegexTesting
             string MobileNumberPattern = @"^[1-9]{2,}[\s][6-9]{1}[0-9]{9}$";
 
             return Regex.IsMatch(mobileNumber, MobileNumberPattern);
+        }
+
+        public bool Validate_Password_Contains_Min_8_Characters(string password)
+        {
+            //Password  - Min 8 Characters
+            string PasswordPattern = @"^[a-zA-Z]{8,}$";
+
+            return Regex.IsMatch(password, PasswordPattern);
         }
     }
 }
