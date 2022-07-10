@@ -104,5 +104,18 @@ namespace TestProject
             //Assert
             Assert.IsTrue(result);
         }
+
+        [Test]
+        //Unit test for validating the Password
+        public void Check_Validation_for_password_Contains_Min_8_Characters_should_have_atleast_1_uppercase_1_NumericNumber_and_has_exactly_1_specialCharacter()
+        {
+            //Act
+            string password = "paSSword@123";
+
+            var result = program.Validate_Password_Contains_Min_8_Characters_should_have_atleast_1_uppercase_1_NumericNumber_and_has_exactly_1_SpecialCharacter(password);
+
+            //Assert
+            Assert.IsTrue(result);
+        }
     }
 }
