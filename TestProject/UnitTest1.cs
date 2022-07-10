@@ -117,5 +117,18 @@ namespace TestProject
             //Assert
             Assert.IsTrue(result);
         }
+
+        [Test]
+        //Unit test for validating the Sample Email
+        public void Check_Validation_for_Sample_Emails()
+        {
+            //Act
+            string sampleEmail = "abc.100@yahoo.com";
+
+            var result = program.Validate_Sample_Emails(sampleEmail);
+
+            //Assert
+            Assert.IsTrue(result);
+        }
     }
 }

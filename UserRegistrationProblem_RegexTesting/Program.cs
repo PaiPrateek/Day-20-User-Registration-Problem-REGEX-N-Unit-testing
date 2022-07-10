@@ -35,6 +35,9 @@ namespace UserRegistrationProblem_RegexTesting
 
             //Validation for Password
             P.Validate_Password_Contains_Min_8_Characters_should_have_atleast_1_uppercase_1_NumericNumber_and_has_exactly_1_SpecialCharacter("Password@123");
+
+            //Validation for Email
+            P.Validate_Sample_Emails("abc.100@yahoo.com");
         }
 
         public bool Validate_FirstName(string firstName)
@@ -99,6 +102,14 @@ namespace UserRegistrationProblem_RegexTesting
             string PasswordPattern = @"^(?=.*[A-Z])(?=.*[@#$!%^&-+=()])(?=.*[0-9])(?=.*[a-z]).{8,}$";
 
             return Regex.IsMatch(password, PasswordPattern);
+        }
+
+        public bool Validate_Sample_Emails(string sampleEmail)
+        {
+            //Email Pattern 
+            string SampleEmailPattern = @"^([a-z]{3}([\.\+\-0-9]*)@[a-z0-9]{1,}.[a-z]{3,}[.a-z]*)";
+
+            return Regex.IsMatch(sampleEmail, SampleEmailPattern);
         }
     }
 }
