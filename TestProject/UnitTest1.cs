@@ -39,5 +39,18 @@ namespace TestProject
             //Assert
             Assert.IsTrue(result);
         }
+
+        [Test]
+        //Unit test for validating the Email
+        public void Check_Validation_for_Email()
+        {
+            //Act
+            string email = "prateek.pai@gmail.co.in";
+
+            var result = program.Validate_Email(email);
+
+            //Assert
+            Assert.IsTrue(result);
+        }
     }
 }
