@@ -12,7 +12,11 @@ namespace UserRegistrationProblem_RegexTesting
 
             Program P = new Program();
 
+            //Validation for First Name
             P.Validate_FirstName("Prateek");
+
+            //Validation for Last Name
+            P.Validate_LastName("Pai");
         }
 
         public bool Validate_FirstName(string firstName)
@@ -21,6 +25,14 @@ namespace UserRegistrationProblem_RegexTesting
             string FirstNamePattern = @"^[A-Z]{1}[a-zA-Z]{2,}$";
 
             return Regex.IsMatch(firstName,FirstNamePattern);
+        }
+
+        public bool Validate_LastName(string lastName)
+        {
+            //Last name starts with capital and should have min 3 characters
+            string LastNamePattern = @"^[A-Z]{1}[a-zA-Z]{2,}$";
+
+            return Regex.IsMatch(lastName, LastNamePattern);
         }
     }
 }

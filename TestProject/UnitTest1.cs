@@ -27,5 +27,17 @@ namespace TestProject
             //Assert
             Assert.IsTrue(result);
         }
+        [Test]
+        //Unit test for validating the Last Name
+        public void Check_Validation_for_LastName()
+        {
+            //Act
+            string lastName = "Pai";
+
+            var result = program.Validate_LastName(lastName);
+
+            //Assert
+            Assert.IsTrue(result);
+        }
     }
 }
