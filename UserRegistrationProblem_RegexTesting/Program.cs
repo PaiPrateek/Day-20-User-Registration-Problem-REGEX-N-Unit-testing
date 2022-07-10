@@ -26,6 +26,10 @@ namespace UserRegistrationProblem_RegexTesting
 
             //Validation for Password
             P.Validate_Password_Contains_Min_8_Characters("Password");
+
+            //Validation for Password
+            P.Validate_Password_Contains_Min_8_Characters_should_have_atleast_1_uppercase("paSSword");
+
         }
 
         public bool Validate_FirstName(string firstName)
@@ -64,6 +68,14 @@ namespace UserRegistrationProblem_RegexTesting
         {
             //Password  - Min 8 Characters
             string PasswordPattern = @"^[a-zA-Z]{8,}$";
+
+            return Regex.IsMatch(password, PasswordPattern);
+        }
+
+        public bool Validate_Password_Contains_Min_8_Characters_should_have_atleast_1_uppercase(string password)
+        {
+            //Password  - Min 8 Characters and should have atleast 1 upeer case
+            string PasswordPattern = @"^(?=.*[A-Z])[a-zA-Z]{8,}$";
 
             return Regex.IsMatch(password, PasswordPattern);
         }
