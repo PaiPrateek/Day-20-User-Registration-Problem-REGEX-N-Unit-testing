@@ -10,6 +10,7 @@ namespace UserRegistrationProblem_RegexTesting
             Console.WriteLine("Welcome to User Registration Problem - Regex Unit Testing");
             Console.WriteLine("\n");
 
+            ExceptionHandling exception = new ExceptionHandling();
             Program P = new Program();
 
             //Validation for First Name
@@ -38,6 +39,33 @@ namespace UserRegistrationProblem_RegexTesting
 
             //Validation for Email
             P.Validate_Sample_Emails("abc.100@yahoo.com");
+            //*************************************************************************************************//
+            //Validation for First Name Exception
+            exception.Validate_FirstName_Exception("Pk");
+
+            //Validation for Last Name Exception
+            exception.Validate_LastName_Exception("Pi");
+
+            //Validation for Email Exception
+            exception.Validate_Email_Exception("gmail.co.in");
+
+            //Validation for Mobile Number Exception
+            exception.Validate_MobileNumber_Exception("994500");
+
+            //Validation for Password Exception
+            exception.Validate_Password_Contains_Min_8_Characters_Exception("word");
+
+            //Validation for Password Exception
+            exception.Validate_Password_Contains_Min_8_Characters_should_have_atleast_1_uppercase_Exception("SS");
+
+            //Validation for Password Exception
+            exception.Validate_Password_Contains_Min_8_Characters_should_have_atleast_1_uppercase_1_NumericNumber_Exception("word");
+
+            //Validation for Password Exception
+            exception.Validate_Password_Contains_Min_8_Characters_should_have_atleast_1_uppercase_1_NumericNumber_and_has_exactly_1_SpecialCharacter_Exception("Pass");
+
+            //Validation for Email Exception
+            exception.Validate_Sample_Emails_Exception("abc");
         }
 
         public bool Validate_FirstName(string firstName)
