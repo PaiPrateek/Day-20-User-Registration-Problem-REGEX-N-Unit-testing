@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UserRegistrationProblem_RegexTesting;
 
@@ -129,6 +130,31 @@ namespace TestProject
 
             //Assert
             Assert.IsTrue(result);
+        }
+
+        [Test]
+        //Unit test for validating the Multip[le Sample Email
+        public void Check_Validation_for_Multiple_Sample_Emails()
+        {
+            //Act
+            List<string> SampleEmails = new List<string>();
+            SampleEmails.Add("abc@yahoo.com");
+            SampleEmails.Add("abc-100@yahoo.com");
+            SampleEmails.Add("abc.100@yahoo.com");
+            SampleEmails.Add("abc111@abc.com");
+            SampleEmails.Add("abc-100@abc.net");
+            SampleEmails.Add("abc.100@abc.com.au");
+            SampleEmails.Add("abc@1.com");
+            SampleEmails.Add("abc@gmail.com.com");
+            SampleEmails.Add("abc+100@gmail.com");
+
+            foreach(var email in SampleEmails)
+            {
+                var result = program.Validate_Sample_Emails(email);
+
+                //Assert
+                Assert.IsTrue(result);
+            }
         }
     }
 }
