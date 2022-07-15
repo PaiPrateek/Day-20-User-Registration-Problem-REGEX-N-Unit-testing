@@ -39,6 +39,7 @@ namespace UserRegistrationProblem_RegexTesting
 
             //Validation for Email
             P.Validate_Sample_Emails("abc.100@yahoo.com");
+
             //*************************************************************************************************//
             //Validation for First Name Exception
             exception.Validate_FirstName_Exception("Pk");
@@ -66,6 +67,10 @@ namespace UserRegistrationProblem_RegexTesting
 
             //Validation for Email Exception
             exception.Validate_Sample_Emails_Exception("abc");
+
+            //User entry validation by using Lambda expression
+            
+            ValidateUserEntryUsingLambdaExpression();
         }
 
         public bool Validate_FirstName(string firstName)
@@ -138,6 +143,43 @@ namespace UserRegistrationProblem_RegexTesting
             string SampleEmailPattern = @"^([a-z]{3}([\.\+\-0-9]*)@[a-z0-9]{1,}.[a-z]{3,}[.a-z]*)";
 
             return Regex.IsMatch(sampleEmail, SampleEmailPattern);
+        }
+        //Validation of User entry by using Lambda Expression
+        public static void ValidateUserEntryUsingLambdaExpression()
+        {
+            string FirstName = @"^[A-Z]{1}[a-zA-Z]{2,}$";
+            string LastName = @"^[A-Z]{1}[a-zA-Z]{2,}$";
+            string Email = @"^([A-Za-z]{3,}([.a-z]*)[@][a-z]{2,}[.][a-z]{2,3}([.a-z]*))$";
+            string MobileNumber = @"^[1-9]{2,}[\s][6-9]{1}[0-9]{9}$";
+            string Password = @"^(?=.*[A-Z])(?=.*[@#$!%^&-+=()])(?=.*[0-9])(?=.*[a-z]).{8,}$";
+
+            string[] RegexPattern = { FirstName, LastName, Email, MobileNumber, Password };
+
+
+            Console.WriteLine("Enter First Name:");
+            string FirstNameInput = Console.ReadLine();
+            Console.WriteLine("\n");
+            Console.WriteLine("Enter Last Name:");
+            string LastNameInput = Console.ReadLine();
+            Console.WriteLine("\n");
+            Console.WriteLine("Enter Email Id:");
+            string EmailInput = Console.ReadLine();
+            Console.WriteLine("\n");
+            Console.WriteLine("Enter Phone Number:");
+            string MobileNumberInput = Console.ReadLine();
+            Console.WriteLine("\n");
+            Console.WriteLine("Enter passward:");
+            string PasswordInput = Console.ReadLine();
+            Console.WriteLine("\n");
+            string[] Userinputs = { FirstNameInput, LastNameInput, EmailInput, MobileNumberInput, PasswordInput };
+
+            for (int i = 0; i < Userinputs.Length; i++)
+            {
+                Func<string, bool> uservalidation = Userinputs => Regex.IsMatch(Userinputs, RegexPattern[i]);
+                bool Result = uservalidation(Userinputs[i]);
+                Console.WriteLine("\n---------------------------------------------------\n");
+                Console.WriteLine(Userinputs[i] + "             :" + Result);
+            }
         }
     }
 }
